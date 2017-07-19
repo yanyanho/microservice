@@ -2,6 +2,7 @@ package com.example.demogateway.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +39,13 @@ public class PrintFilter extends ZuulFilter {
 
             log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
 
+
+            // get name
+            //socket session
+        //    1auto - session -返回 token request sai ru session
+          //          2 token  session id
+           // (sessionId, auth)
+            ctx.addZuulRequestHeader("Authorization","");
             return null;
         }
 }
